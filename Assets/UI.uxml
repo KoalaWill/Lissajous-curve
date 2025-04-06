@@ -10,7 +10,7 @@
         <ui:VisualElement name="OptionsFrame" style="flex-grow: 1; width: 30%; justify-content: flex-start; align-items: center; background-color: rgb(195, 195, 195); align-self: auto; flex-direction: row; flex-wrap: wrap; display: flex; overflow: hidden;">
             <ui:VisualElement name="SettingTitle" style="flex-grow: 1; height: 15%;">
                 <ui:Label tabindex="-1" text="Variables  /  Controls" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Variable__Controls" style="height: 40%; -unity-font-style: bold; font-size: 20px; color: rgb(0, 0, 0);" />
-                <ui:Label tabindex="-1" text="press &quot;T&quot; to &#10;turn on and off permanent trail" parse-escape-sequences="true" display-tooltip-when-elided="true" name="tip" enable-rich-text="false" />
+                <ui:Label tabindex="-1" text="press &quot;T&quot; to &#10;clear permanent trail" parse-escape-sequences="true" display-tooltip-when-elided="true" name="tip" enable-rich-text="false" />
             </ui:VisualElement>
             <ui:VisualElement name="X_Amp" style="flex-grow: 1; flex-direction: row; height: 8%; color: rgb(0, 0, 0);">
                 <ui:DoubleField label="X Amplitude" value="42.2" name="X_amp" class="variable" style="width: 95%; height: 80%;" />

@@ -18,7 +18,7 @@ public class UIController : MonoBehaviour
     public DoubleField DeltaAngle;
     public DoubleField Xpos;
     public DoubleField Ypos;
-    public bool SettingsOpen = true;
+    public bool SettingsOpen = false;
 
     // Start is called before the first frame update
     void Start(){
@@ -33,23 +33,18 @@ public class UIController : MonoBehaviour
         Yfreq = root.Q<DoubleField>("Y_freq");
         Xoffset = root.Q<DoubleField>("X_offset");
         Yoffset = root.Q<DoubleField>("Y_offset");
-        DeltaAngle = root.Q<DoubleField>("DeltaAngle");
-        Xpos = root.Q<DoubleField>("Xpos");
-        Ypos = root.Q<DoubleField>("Ypos");
+        DeltaAngle = root.Q<DoubleField>("Delta_angle");
+        Xpos = root.Q<DoubleField>("X_pos");
+        Ypos = root.Q<DoubleField>("Y_pos");
         SettingsOff.RegisterCallback<ClickEvent>(OnOffClicked);
         SettingsOn.RegisterCallback<ClickEvent>(OnOnClicked);
         SimulateSwitch.RegisterCallback<ClickEvent>(OnSimClicked);
-        SettingsOn.style.display = DisplayStyle.None;
+        SettingsOpen = false;
 
-        Xamp.value = LissajousCurve.Instance.xAmplitude;
-        Yamp.value = LissajousCurve.Instance.yAmplitude;
-        Xfreq.value = LissajousCurve.Instance.xFrequency;
-        Yfreq.value = LissajousCurve.Instance.yFrequency;
-        Xoffset.value = LissajousCurve.Instance.xOffset;
-        Yoffset.value = LissajousCurve.Instance.yOffset;
-        DeltaAngle.value = LissajousCurve.Instance.deltaAngle;
-        Xpos.value = LissajousCurve.Instance.xPos;
-        Ypos.value = LissajousCurve.Instance.yPos;
+
+        SettingsOn.style.display = DisplayStyle.Flex;
+        Settings_panel.style.display = DisplayStyle.None;
+
         Debug.Log("assigned: " + (DeltaAngle != null));
     }
 
@@ -63,6 +58,13 @@ public class UIController : MonoBehaviour
         SettingsOpen = true;
         SettingsOn.style.display = DisplayStyle.None;
         Settings_panel.style.display = DisplayStyle.Flex;
+        Xamp.value = 3;
+        Yamp.value = 3;
+        Xfreq.value = 0.2f;
+        Yfreq.value = 0.4f;
+        Xoffset.value = -3;
+        Yoffset.value = 0;
+        DeltaAngle.value = 0;
 
     }
 
@@ -76,14 +78,17 @@ public class UIController : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
-        LissajousCurve.Instance.xAmplitude = Xamp.value;
-        LissajousCurve.Instance.yAmplitude = Yamp.value;
-        LissajousCurve.Instance.xFrequency = Xfreq.value;
-        LissajousCurve.Instance.yFrequency = Yfreq.value;
-        LissajousCurve.Instance.xOffset = Xoffset.value;
-        LissajousCurve.Instance.yOffset = Yoffset.value;
-        LissajousCurve.Instance.deltaAngle = DeltaAngle.value;
-        Xpos.value = LissajousCurve.Instance.xPos;
-        Ypos.value = LissajousCurve.Instance.yPos;
+        if (SettingsOpen)
+        {
+            LissajousCurve.Instance.xAmplitude = Xamp.value;
+            LissajousCurve.Instance.yAmplitude = Yamp.value;
+            LissajousCurve.Instance.xFrequency = Xfreq.value;
+            LissajousCurve.Instance.yFrequency = Yfreq.value;
+            LissajousCurve.Instance.xOffset = Xoffset.value;
+            LissajousCurve.Instance.yOffset = Yoffset.value;
+            LissajousCurve.Instance.deltaAngle = DeltaAngle.value;
+            Xpos.value = LissajousCurve.Instance.xPos;
+            Ypos.value = LissajousCurve.Instance.yPos;
+        }
     }
 }

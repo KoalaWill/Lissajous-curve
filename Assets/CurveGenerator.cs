@@ -11,7 +11,7 @@ public class LissajousCurve : MonoBehaviour
     public double xFrequency = 0.2f;
     public double yAmplitude = 3;
     public double yFrequency = 0.4f;
-    public double xOffset;
+    public double xOffset = -3;
     public double yOffset;
     public double deltaAngle; // In degrees
     public bool Continue; // whether to continue going;
@@ -42,6 +42,11 @@ public class LissajousCurve : MonoBehaviour
     {
         time = 0;
         Continue = true;
+        xAmplitude = 3;
+        yAmplitude = 3;
+        xFrequency = 0.2f;
+        yFrequency = 0.4f;
+        xOffset = -3;
         dot = Instantiate(dotPrefab);
         dot2 = Instantiate(dotPrefab);
     }
