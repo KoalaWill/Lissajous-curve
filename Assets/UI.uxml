@@ -1,9 +1,47 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20style.uss?fileID=7433441132597879392&amp;guid=f8a65711f073fd249adb6d71172e7ab8&amp;type=3#UI style" />
     <ui:VisualElement name="Container" style="flex-grow: 1; align-self: auto; align-items: stretch; flex-direction: row;">
-        <ui:VisualElement name="MainFrame" style="flex-grow: 1;">
-            <ui:Label tabindex="-1" text="Lissajous Curve Simulator" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" enable-rich-text="false" style="top: auto; -unity-font: initial; font-size: 40px;" />
-            <ui:VisualElement name="ShowFrame" style="flex-grow: 1;" />
+        <ui:VisualElement name="MainFrame" style="flex-grow: 1; width: 100%;">
+            <ui:Label tabindex="-1" text="Lissajous Curve Simulator" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" enable-rich-text="false" style="top: auto; -unity-font: initial; font-size: 40px; color: rgb(255, 255, 255);" />
+            <ui:VisualElement name="ShowFrame" style="flex-grow: 1; width: 100%; flex-direction: column-reverse; align-items: flex-end;">
+                <ui:Button text="Settings" parse-escape-sequences="true" display-tooltip-when-elided="true" name="SettingsOn" style="flex-direction: column; overflow: hidden; position: absolute; left: auto; right: 0;" />
+            </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="OptionsFrame" style="flex-grow: 1;" />
+        <ui:VisualElement name="OptionsFrame" style="flex-grow: 1; width: 30%; justify-content: flex-start; align-items: center; background-color: rgb(195, 195, 195); align-self: auto; flex-direction: row; flex-wrap: wrap; display: flex; overflow: hidden;">
+            <ui:VisualElement name="SettingTitle" style="flex-grow: 1; height: 15%;">
+                <ui:Label tabindex="-1" text="Variables  /  Controls" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Variable__Controls" style="height: 40%; -unity-font-style: bold; font-size: 20px; color: rgb(0, 0, 0);" />
+                <ui:Label tabindex="-1" text="press &quot;T&quot; to &#10;turn on and off permanent trail" parse-escape-sequences="true" display-tooltip-when-elided="true" name="tip" enable-rich-text="false" />
+            </ui:VisualElement>
+            <ui:VisualElement name="X_Amp" style="flex-grow: 1; flex-direction: row; height: 8%; color: rgb(0, 0, 0);">
+                <ui:DoubleField label="X Amplitude" value="42.2" name="X_amp" class="variable" style="width: 95%; height: 80%;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="X_Freq" style="flex-grow: 1; height: 8%; width: auto;">
+                <ui:DoubleField label="X Frequency" value="42.2" name="X_freq" class="variable" />
+            </ui:VisualElement>
+            <ui:VisualElement name="X_Offset" style="flex-grow: 1; height: 8%;">
+                <ui:DoubleField label="X Offset" value="42.2" name="X_offset" class="variable" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Y_Amp" style="flex-grow: 1; height: 8%;">
+                <ui:DoubleField label="Y Amplitude" value="42.2" name="Y_amp" class="variable" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Y_Freq" style="flex-grow: 1; height: 8%;">
+                <ui:DoubleField label="Y Frequency" value="42.2" name="Y_freq" class="variable" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Y_Offset" style="flex-grow: 1; height: 8%;">
+                <ui:DoubleField label="Y Offset" value="42.2" name="Y_offset" class="variable" />
+            </ui:VisualElement>
+            <ui:VisualElement name="DeltaAngle" style="flex-grow: 1; height: 8%;">
+                <ui:DoubleField label="Delta Angle" value="42.2" name="Delta_angle" class="variable" />
+            </ui:VisualElement>
+            <ui:VisualElement name="On_Off" style="flex-grow: 1; height: 6%; flex-direction: row; width: 95%; justify-content: space-between;">
+                <ui:Label tabindex="-1" text="Continue / Stop" parse-escape-sequences="true" display-tooltip-when-elided="true" />
+                <ui:Button text="I / O" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Switch" style="background-color: rgb(176, 37, 37);" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Dot_Pos" style="flex-grow: 1; height: 15%; flex-direction: row; width: 95%; justify-content: space-around;">
+                <ui:DoubleField label="X Pos" value="0" readonly="true" name="X_pos" style="width: 40%; justify-content: flex-start; flex-wrap: wrap; font-size: 14px; white-space: nowrap;" />
+                <ui:DoubleField label="Y Pos" value="0" readonly="true" name="Y_pos" style="width: 40%; justify-content: flex-start; flex-wrap: wrap; font-size: 14px; white-space: normal;" />
+            </ui:VisualElement>
+            <ui:Button text="Settings off" parse-escape-sequences="true" display-tooltip-when-elided="true" name="SettingsOff" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

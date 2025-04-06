@@ -4,26 +4,31 @@ using UnityEngine;
 
 public class LissajousCurve : MonoBehaviour
 {
+    public static LissajousCurve Instance;
     public Transform dotPrefab; // The prefab of the dot
-    public float xAmplitude = 3;
-    public float xFrequency = 0.2f;
-    public float yAmplitude = 3;
-    public float yFrequency = 0.4f;
-    public float xOffset;
-    public float yOffset;
-    public float deltaAngle; // In degrees
+    public double xAmplitude = 3;
+    public double xFrequency = 0.2f;
+    public double yAmplitude = 3;
+    public double yFrequency = 0.4f;
+    public double xOffset;
+    public double yOffset;
+    public double deltaAngle; // In degrees
     public bool Continue; // whether to continue going;
-    public float xPos;
-    public float yPos;
+    public double xPos;
+    public double yPos;
     [Tooltip("You can press \"T\" to turn on and off permanent trail. Default is on")]
-    float time;
+    double time;
 
     Transform dot;
     Transform dot2;
-    float xOmega;
-    float yOmega;
+    double xOmega;
+    double yOmega;
 
-    
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,11 +54,11 @@ public class LissajousCurve : MonoBehaviour
         if(Continue) {
             time += Time.deltaTime;
             Debug.Log(xPos + " " + yPos);
-            xPos = xAmplitude * Mathf.Sin(xOmega * time);
-            yPos = yAmplitude * Mathf.Sin(yOmega * time + (deltaAngle * Mathf.Deg2Rad));
+            xPos = xAmplitude * Mathf.Sin((float)xOmega * (float)time);
+            yPos = yAmplitude * Mathf.Sin((float)yOmega * (float)time + ((float)deltaAngle * Mathf.Deg2Rad));
 
-            dot.position = new Vector2(xPos, yPos);
-            dot2.position = new Vector2(xPos, yPos);
+            dot.position = new Vector2((float)xPos, (float)yPos);
+            dot2.position = new Vector2((float)xPos, (float)yPos);
         }
     }
 }
