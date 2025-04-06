@@ -5,20 +5,20 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
-    private VisualElement Settings_panel;
-    private Button SettingsOff;
-    private Button SettingsOn;
-    private Button SimulateSwitch;
-    private DoubleField Xamp;
-    private DoubleField Yamp;
-    private DoubleField Xfreq;
-    private DoubleField Yfreq;
-    private DoubleField Xoffset;
-    private DoubleField Yoffset;
-    private DoubleField DeltaAngle;
-    private DoubleField Xpos;
-    private DoubleField Ypos;
-    private bool SettingsOpen = true;
+    public VisualElement Settings_panel;
+    public Button SettingsOff;
+    public Button SettingsOn;
+    public Button SimulateSwitch;
+    public DoubleField Xamp;
+    public DoubleField Yamp;
+    public DoubleField Xfreq;
+    public DoubleField Yfreq;
+    public DoubleField Xoffset;
+    public DoubleField Yoffset;
+    public DoubleField DeltaAngle;
+    public DoubleField Xpos;
+    public DoubleField Ypos;
+    public bool SettingsOpen = true;
 
     // Start is called before the first frame update
     void Start(){
@@ -50,6 +50,7 @@ public class UIController : MonoBehaviour
         DeltaAngle.value = LissajousCurve.Instance.deltaAngle;
         Xpos.value = LissajousCurve.Instance.xPos;
         Ypos.value = LissajousCurve.Instance.yPos;
+        Debug.Log("assigned: " + (DeltaAngle != null));
     }
 
     private void OnSimClicked(ClickEvent evt)

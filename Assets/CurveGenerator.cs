@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LissajousCurve : MonoBehaviour
@@ -26,14 +27,21 @@ public class LissajousCurve : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
         time = 0;
-        Continue = false;
+        Continue = true;
         dot = Instantiate(dotPrefab);
         dot2 = Instantiate(dotPrefab);
     }
@@ -53,9 +61,9 @@ public class LissajousCurve : MonoBehaviour
         }
         if(Continue) {
             time += Time.deltaTime;
-            Debug.Log(xPos + " " + yPos);
-            xPos = xAmplitude * Mathf.Sin((float)xOmega * (float)time);
-            yPos = yAmplitude * Mathf.Sin((float)yOmega * (float)time + ((float)deltaAngle * Mathf.Deg2Rad));
+            //Debug.Log(xPos + " " + yPos);
+            xPos = xOffset + xAmplitude * Mathf.Sin((float)xOmega * (float)time);
+            yPos = yOffset + yAmplitude * Mathf.Sin((float)yOmega * (float)time + ((float)deltaAngle * Mathf.Deg2Rad));
 
             dot.position = new Vector2((float)xPos, (float)yPos);
             dot2.position = new Vector2((float)xPos, (float)yPos);
