@@ -44,6 +44,13 @@ public class UIController : MonoBehaviour
 
         SettingsOn.style.display = DisplayStyle.Flex;
         Settings_panel.style.display = DisplayStyle.None;
+        Xamp.value = 3;
+        Yamp.value = 3;
+        Xfreq.value = 0.2f;
+        Yfreq.value = 0.4f;
+        Xoffset.value = -3;
+        Yoffset.value = 0;
+        DeltaAngle.value = 0;
 
         Debug.Log("assigned: " + (DeltaAngle != null));
     }
@@ -58,13 +65,7 @@ public class UIController : MonoBehaviour
         SettingsOpen = true;
         SettingsOn.style.display = DisplayStyle.None;
         Settings_panel.style.display = DisplayStyle.Flex;
-        Xamp.value = 3;
-        Yamp.value = 3;
-        Xfreq.value = 0.2f;
-        Yfreq.value = 0.4f;
-        Xoffset.value = -3;
-        Yoffset.value = 0;
-        DeltaAngle.value = 0;
+        
 
     }
 

@@ -37,7 +37,6 @@ public class LissajousCurve : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         time = 0;
@@ -51,7 +50,6 @@ public class LissajousCurve : MonoBehaviour
         dot2 = Instantiate(dotPrefab);
     }
 
-    // Update is called once per frame
     void Update()
     {
         xOmega = 2*Mathf.PI* xFrequency;
@@ -66,7 +64,6 @@ public class LissajousCurve : MonoBehaviour
         }
         if(Continue) {
             time += Time.deltaTime;
-            //Debug.Log(xPos + " " + yPos);
             xPos = xOffset + xAmplitude * Mathf.Sin((float)xOmega * (float)time);
             yPos = yOffset + yAmplitude * Mathf.Sin((float)yOmega * (float)time + ((float)deltaAngle * Mathf.Deg2Rad));
 
